@@ -17,24 +17,7 @@ class CSVReader {
             String record;
             while ((record = bufferedReader.readLine()) != null) {
                 String[] tokens = record.split(";");
-                Person person = new Person();
-                for (int i = 0; i < headers.length; i++) {
-                    if ("name".equals(headers[i])) {
-                        person.setName(tokens[i]);
-                    }
-                    if ("lastName".equals(headers[i])) {
-                        person.setLastName(tokens[i]);
-                    }
-                    if ("age".equals(headers[i])) {
-                        person.setAge(Integer.parseInt(tokens[i]));
-                    }
-                    if ("sex".equals(headers[i])) {
-                        person.setSex(Sex.valueOf(tokens[i].toUpperCase()));
-                    }
-                    if ("salary".equals(headers[i])) {
-                        person.setSalary(Double.parseDouble(tokens[i]));
-                    }
-                }
+                Person person = createPerson(headers, tokens);
                 result.add(person);
             }
         } catch (FileNotFoundException e) {
@@ -43,5 +26,27 @@ class CSVReader {
             e.printStackTrace();
         }
         return result;
+    }
+
+    private Person createPerson(String[] headers, String[] tokens) {
+        Person person = new Person();
+        for (int i = 0; i < headers.length; i++) {
+            if ("name".equals(headers[i])) {
+                person.setName(tokens[i]);
+            }
+            if ("lastName".equals(headers[i])) {
+                person.setLastName(tokens[i]);
+            }
+            if ("age".equals(headers[i])) {
+                person.setAge(Integer.parseInt(tokens[i]));
+            }
+            if ("sex".equals(headers[i])) {
+                person.setSex(Sex.valueOf(tokens[i].toUpperCase()));
+            }
+            if ("salary".equals(headers[i])) {
+                person.setSalary(Double.parseDouble(tokens[i]));
+            }
+        }
+        return person;
     }
 }
