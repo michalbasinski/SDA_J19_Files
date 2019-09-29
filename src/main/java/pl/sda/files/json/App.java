@@ -10,7 +10,7 @@ class App {
         JsonAltReader altReader = new JsonAltReader();
         Person person2 = altReader.read("/home/michal/SDA/Java19/Projekty/SDA_J19_Files/src/main/resources/person.json");
 
-        JSONWriter writer = new JSONWriter();
+        JsonAltWriter writer = new JsonAltWriter();
         writer.write(person2, "/home/michal/personFromWriter.json");
 
         int i = 0;
