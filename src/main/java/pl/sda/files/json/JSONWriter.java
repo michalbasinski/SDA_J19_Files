@@ -5,6 +5,7 @@ import org.json.JSONObject;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.List;
 
 class JSONWriter {
     void write(Person person, String filePath) {
@@ -34,5 +35,9 @@ class JSONWriter {
         jsonToSave.put("address", address);
 
         return jsonToSave.toString(2);
+    }
+
+    public void write(List<Person> persons, String filePath) {
+        //TODO: napisać generowanie i zapis bardziej skomplikowanego JSONa
     }
 }
