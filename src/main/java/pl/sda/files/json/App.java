@@ -15,5 +15,7 @@ class App {
         writer.write(person2, "/home/michal/personFromWriter.json");
 
         List<Person> people = reader.readMultiple("/home/michal/SDA/Java19/Projekty/SDA_J19_Files/src/main/resources/persons.json");
+
+
     }
 }
